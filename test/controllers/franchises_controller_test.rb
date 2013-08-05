@@ -2,7 +2,12 @@ require 'test_helper'
 
 class FranchisesControllerTest < ActionController::TestCase
   setup do
-    @franchise = franchises(:one)
+    @franchise = franchises(:nyy)
+		@update = {
+			abbr: 'IND',
+			city: 'Independent',
+			name: 'Franchise'
+		}
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class FranchisesControllerTest < ActionController::TestCase
 
   test "should create franchise" do
     assert_difference('Franchise.count') do
-      post :create, franchise: { abbr: @franchise.abbr, city: @franchise.city, name: @franchise.name }
+      post :create, franchise: @update
     end
 
     assert_redirected_to franchise_path(assigns(:franchise))
@@ -35,7 +40,7 @@ class FranchisesControllerTest < ActionController::TestCase
   end
 
   test "should update franchise" do
-    patch :update, id: @franchise, franchise: { abbr: @franchise.abbr, city: @franchise.city, name: @franchise.name }
+    patch :update, id: @franchise, franchise: @update
     assert_redirected_to franchise_path(assigns(:franchise))
   end
 
