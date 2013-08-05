@@ -1,15 +1,11 @@
 class Franchise < ActiveRecord::Base
+	has_many :teams
+	has_many :leagues, through: :teams
 	
 	validates :abbr, :city, :name, presence: true
   validates :abbr, uniqueness: true
 	
-	scope :alphabetical, -> { order('city ASC') }
-	scope :al_west, -> { where{ abbr.like_any %w[HOU LAA OAK TEX SEA] } }
-	scope :al_central, -> { where { abbr.like_any %w[CHW CLE DET KCR MIN] } }
-	scope :al_east, -> { where{ abbr.like_any %w[NYY BOS TOR BAL TAM] } }
-	scope :nl_west, -> { where{ abbr.like_any %w[LAD SDP COL ARI SFG] } }
-	scope :nl_central, -> { where { abbr.like_any %w[CHC CIN PIT STL MIL] } }
-	scope :nl_east, -> { where{ abbr.like_any %w[PHI NYM ATL WAS MIA] } }
+	include Divisions
 
 	def logo
 		"logo/#{self.class.to_s.downcase}/#{abbr.downcase}.gif"

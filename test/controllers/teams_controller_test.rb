@@ -2,7 +2,14 @@ require 'test_helper'
 
 class TeamsControllerTest < ActionController::TestCase
   setup do
-    @team = teams(:one)
+    @team = teams(:nyy)
+		@update = {
+			franchise_id: 2,
+			league_id: 2,
+			abbr: 'ANO',
+			city: 'Anonymous',
+			name: 'Team'
+		}
   end
 
   test "should get index" do
@@ -18,7 +25,7 @@ class TeamsControllerTest < ActionController::TestCase
 
   test "should create team" do
     assert_difference('Team.count') do
-      post :create, team: { abbr: @team.abbr, city: @team.city, franchise_id: @team.franchise_id, name: @team.name }
+      post :create, team: @update
     end
 
     assert_redirected_to team_path(assigns(:team))
@@ -28,6 +35,10 @@ class TeamsControllerTest < ActionController::TestCase
     get :show, id: @team
     assert_response :success
   end
+	
+	test "should find logo in assets" do
+		assert_not_nil Org::Application.assets.find_asset(@team.logo)
+	end
 
   test "should get edit" do
     get :edit, id: @team
@@ -35,7 +46,7 @@ class TeamsControllerTest < ActionController::TestCase
   end
 
   test "should update team" do
-    patch :update, id: @team, team: { abbr: @team.abbr, city: @team.city, franchise_id: @team.franchise_id, name: @team.name }
+    patch :update, id: @team, team: @update
     assert_redirected_to team_path(assigns(:team))
   end
 

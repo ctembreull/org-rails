@@ -17,4 +17,12 @@ class LeagueTest < ActiveSupport::TestCase
 		assert_equal ["has already been taken"], l.errors[:abbr]
 	end
 	
+	test "has a teams relation" do
+		assert leagues(:american).teams.is_a? ActiveRecord::Relation
+	end
+	
+	test "has a franchises relation (through teams)" do
+		assert leagues(:american).franchises.is_a? ActiveRecord::Relation
+	end
+	
 end

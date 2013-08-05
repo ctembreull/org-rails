@@ -25,5 +25,13 @@ class FranchiseTest < ActiveSupport::TestCase
 	test "wordmark returns predictable string" do
 		assert_equal "logo/franchise/nyy_wordmark.gif", franchises(:nyy).wordmark
 	end
+	
+	test "Has a teams relation" do
+		assert franchises(:nyy).teams.is_a? ActiveRecord::Relation
+	end
+	
+	test "has a leagues relation (via teams)" do
+		assert franchises(:nyy).leagues.is_a? ActiveRecord::Relation
+	end
 		
 end

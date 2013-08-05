@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  franchise_id: 
-  abbr: MyString
-  city: MyString
-  name: MyString
+nyy:
+  franchise_id: 1
+  league_id: 1
+  abbr: NYY
+  city: New York
+  name: Yankees
 
-two:
-  franchise_id: 
-  abbr: MyString
-  city: MyString
-  name: MyString
+swb:
+  franchise_id: 1
+  league_id: 1
+  abbr: SWB
+  city: Scranton/Wilkes-Barre
+  name: RailRiders
