@@ -1,4 +1,4 @@
-Franchise.delete_all
+#Franchise.delete_all
 franchises = Franchise.create([
 	{abbr: 'BAL', city: 'Baltimore', name: 'Orioles'},
 	{abbr: 'BOS', city: 'Boston', name: 'Red Sox'},
@@ -30,4 +30,29 @@ franchises = Franchise.create([
 	{abbr: 'SFG', city: 'San Francisco', name: 'Giants'},
 	{abbr: 'STL', city: 'St. Louis', name: 'Cardinals'},
 	{abbr: 'WAS', city: 'Washington', name: 'Nationals'},
+])
+
+#League.delete_all
+leagues = League.create([
+	{abbr: 'AL',  name: 'American League', level: 'MLB'},
+	{abbr: 'NL',  name: 'National League', level: 'MLB'},
+	{abbr: 'APP', name: 'Appalachian League', level: 'R'},
+	{abbr: 'AFL', name: 'Arizona League', level: 'R'},
+	{abbr: 'CAL', name: 'California League', level: 'A+'},
+	{abbr: 'CAR', name: 'Carolina League', level: 'A+'},
+	{abbr: 'DSL', name: 'Dominican Summer League', level: 'R'},
+	{abbr: 'EAS', name: 'Eastern League', level: 'AA'},
+	{abbr: 'FSL', name: 'Florida State League', level: 'A+'},
+	{abbr: 'GCL', name: 'Gulf Coast League', level: 'R'},
+	{abbr: 'INT', name: 'International League', level: 'AAA'},
+	{abbr: 'MEX', name: 'Mexican League', level: 'AAA'},
+	{abbr: 'MWL', name: 'Midwest League', level: 'A'},
+	{abbr: 'NYP', name: 'New York-Penn League', level: 'A-SS'},
+	{abbr: 'NWL', name: 'Northwest League', level: 'A-SS'},
+	{abbr: 'PCL', name: 'Pacific Coast League', level: 'AAA'},
+	{abbr: 'PIO', name: 'Pioneer League', level: 'R'},
+	{abbr: 'SAL', name: 'South Atlantic League', level: 'A'},
+	{abbr: 'SOU', name: 'Southern League', level: 'AA'},
+	{abbr: 'TEX', name: 'Texas League', level: 'AA'},
+	{abbr: 'VSL', name: 'Venezuelan Summer League', level: 'R'}
 ])

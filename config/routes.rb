@@ -4,6 +4,8 @@ ActiveSupport::Inflector.inflections do |inflect|
 end
 
 Org::Application.routes.draw do
+  resources :leagues
+
   resources :franchises
 
   # The priority is based upon order of creation: first created -> highest priority.

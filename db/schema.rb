@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805173559) do
+ActiveRecord::Schema.define(version: 20130805185243) do
 
   create_table "franchises", force: true do |t|
     t.string   "abbr"
     t.string   "city"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "leagues", force: true do |t|
+    t.string   "abbr",       limit: 3
+    t.string   "name"
+    t.string   "level",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
