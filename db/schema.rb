@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805193909) do
+ActiveRecord::Schema.define(version: 20130805203548) do
 
   create_table "franchises", force: true do |t|
     t.string   "abbr"
@@ -28,6 +28,32 @@ ActiveRecord::Schema.define(version: 20130805193909) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "players", force: true do |t|
+    t.integer  "franchise_id"
+    t.integer  "team_id"
+    t.string   "pid",            limit: 8
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "bats",           limit: 1
+    t.string   "throws",         limit: 1
+    t.integer  "height"
+    t.integer  "weight"
+    t.date     "birth_date"
+    t.string   "position"
+    t.boolean  "on_25",                    default: false
+    t.boolean  "on_40",                    default: false
+    t.boolean  "on_dl",                    default: false
+    t.boolean  "on_bereavement",           default: false
+    t.boolean  "on_paternity",             default: false
+    t.boolean  "suspended",                default: false
+    t.boolean  "retired",                  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "players", ["franchise_id"], name: "index_players_on_franchise_id"
+  add_index "players", ["team_id"], name: "index_players_on_team_id"
 
   create_table "teams", force: true do |t|
     t.integer  "franchise_id"

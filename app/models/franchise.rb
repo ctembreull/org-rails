@@ -1,6 +1,7 @@
 class Franchise < ActiveRecord::Base
 	has_many :teams
 	has_many :leagues, through: :teams
+	has_many :players
 	
 	validates :abbr, :city, :name, presence: true
   validates :abbr, uniqueness: true

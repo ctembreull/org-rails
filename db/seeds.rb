@@ -248,3 +248,12 @@ Team.create([
 	{abbr: 'WSD', city: 'Winston-Salem', name: 'Dash', franchise: Franchise.find_by_abbr('CHW'), league: League.find_by_abbr('CAR')},
 	{abbr: 'WIS', city: 'Wisconsin', name: 'Timber Rattlers', franchise: Franchise.find_by_abbr('MIL'), league: League.find_by_abbr('MWL')},
 ])
+
+Player.delete_all
+Player.create({
+	pid: 'zuninmi01',
+	franchise: Franchise.find_by_abbr('SEA'), team: Team.find_by_abbr('SEA'),
+	first_name: 'Mike', last_name: 'Zunino', height: 74, weight: 220, bats: 'R', throws: 'R', position: 'C',
+	on_25: true, on_40: true
+})
+

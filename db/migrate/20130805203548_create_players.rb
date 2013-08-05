@@ -11,15 +11,15 @@ class CreatePlayers < ActiveRecord::Migration
 			t.integer :height
 			t.integer :weight
 			t.date :birth_date
+			t.string :position
 			
-			# t.boolean on_25, default: false
-			# t.boolean on_40, default: false
-			# t.boolean on_dl, default: false
-			# t.boolean on_bereavement, default: false
-			# t.boolean on_paternity, default: false
-			# t.boolean suspended, default: false
-			# t.boolean retired, default: false
-			
+			t.boolean :on_25, default: false
+			t.boolean :on_40, default: false
+			t.boolean :on_dl, default: false
+			t.boolean :on_bereavement, default: false
+			t.boolean :on_paternity, default: false
+			t.boolean :suspended, default: false
+			t.boolean :retired, default: false
 			
       t.timestamps
     end
