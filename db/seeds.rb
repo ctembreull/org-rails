@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Franchise.delete_all
+franchises = Franchise.create([
+	{abbr: 'BAL', city: 'Baltimore', name: 'Orioles'},
+	{abbr: 'BOS', city: 'Boston', name: 'Red Sox'},
+	{abbr: 'CHW', city: 'Chicago', name: 'White Sox'},
+	{abbr: 'CLE', city: 'Cleveland', name: 'Indians'},
+	{abbr: 'DET', city: 'Detroit', name: 'Tigers'},
+	{abbr: 'HOU', city: 'Houston', name: 'Astros'},
+	{abbr: 'KCR', city: 'Kansas City', name: 'Royals'},
+	{abbr: 'LAA', city: 'Los Angeles', name: 'Angels'},
+	{abbr: 'MIN', city: 'Minnesota', name: 'Twins'},
+	{abbr: 'NYY', city: 'New York', name: 'Yankees'},
+	{abbr: 'OAK', city: 'Oakland', name: "A's"},
+	{abbr: 'SEA', city: 'Seattle', name: 'Mariners'},
+	{abbr: 'TBR', city: 'Tampa Bay', name: 'Rays'},
+	{abbr: 'TEX', city: 'Texas', name: 'Rangers'},
+	{abbr: 'TOR', city: 'Toronto', name: 'Blue Jays'},
+	{abbr: 'ARI', city: 'Arizona', name: 'Diamondbacks'},
+	{abbr: 'ATL', city: 'Atlanta', name: 'Braves'},
+	{abbr: 'CHC', city: 'Chicago', name: 'Cubs'},
+	{abbr: 'CIN', city: 'Cincinnati', name: 'Reds'},
+	{abbr: 'COL', city: 'Colorado', name: 'Rockies'},
+	{abbr: 'LAD', city: 'Los Angeles', name: 'Dodgers'},
+	{abbr: 'MIA', city: 'Miami', name: 'Marlins'},
+	{abbr: 'MIL', city: 'Milwaukee', name: 'Brewers'},
+	{abbr: 'NYM', city: 'New York', name: 'Mets'},
+	{abbr: 'PHI', city: 'Philadelphia', name: 'Phillies'},
+	{abbr: 'PIT', city: 'Pittsburgh', name: 'Pirates'},
+	{abbr: 'SDP', city: 'San Diego', name: 'Padres'},
+	{abbr: 'SFG', city: 'San Francisco', name: 'Giants'},
+	{abbr: 'STL', city: 'St. Louis', name: 'Cardinals'},
+	{abbr: 'WAS', city: 'Washington', name: 'Nationals'},
+])
