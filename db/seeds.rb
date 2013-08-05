@@ -1,4 +1,3 @@
-#Franchise.delete_all
 Franchise.create([
 	{abbr: 'BAL', city: 'Baltimore', name: 'Orioles'},
 	{abbr: 'BOS', city: 'Boston', name: 'Red Sox'},

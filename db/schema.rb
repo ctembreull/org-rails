@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 20130805193909) do
 
   create_table "teams", force: true do |t|
     t.integer  "franchise_id"
-    t.string   "abbr"
+    t.integer  "league_id"
+    t.string   "abbr",         limit: 3
     t.string   "city"
     t.string   "name"
     t.datetime "created_at"
@@ -39,5 +40,6 @@ ActiveRecord::Schema.define(version: 20130805193909) do
   end
 
   add_index "teams", ["franchise_id"], name: "index_teams_on_franchise_id"
+  add_index "teams", ["league_id"], name: "index_teams_on_league_id"
 
 end
