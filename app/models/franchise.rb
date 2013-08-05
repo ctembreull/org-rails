@@ -1,5 +1,8 @@
 class Franchise < ActiveRecord::Base
 	
+	validates :abbr, :city, :name, presence: true
+  validates :abbr, uniqueness: true
+	
 	scope :alphabetical, -> { order('city ASC') }
 	scope :al_west, -> { where{ abbr.like_any %w[HOU LAA OAK TEX SEA] } }
 	scope :al_central, -> { where { abbr.like_any %w[CHW CLE DET KCR MIN] } }
