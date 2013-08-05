@@ -1,4 +1,11 @@
+# Ensure that the rails inflector can parse the word "bonus"
+ActiveSupport::Inflector.inflections do |inflect|
+	inflect.irregular 'bonus', 'bonuses'
+end
+
 Org::Application.routes.draw do
+  resources :franchises
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
