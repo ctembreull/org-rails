@@ -1,5 +1,5 @@
 #Franchise.delete_all
-franchises = Franchise.create([
+Franchise.create([
 	{abbr: 'BAL', city: 'Baltimore', name: 'Orioles'},
 	{abbr: 'BOS', city: 'Boston', name: 'Red Sox'},
 	{abbr: 'CHW', city: 'Chicago', name: 'White Sox'},
@@ -33,7 +33,7 @@ franchises = Franchise.create([
 ])
 
 #League.delete_all
-leagues = League.create([
+League.create([
 	{abbr: 'AL',  name: 'American League', level: 'MLB'},
 	{abbr: 'NL',  name: 'National League', level: 'MLB'},
 	{abbr: 'APP', name: 'Appalachian League', level: 'R'},
@@ -57,7 +57,7 @@ leagues = League.create([
 	{abbr: 'VSL', name: 'Venezuelan Summer League', level: 'R'}
 ])
 
-teams = Team.create([
+Team.create([
 	{abbr: 'BAL', city: 'Baltimore', name: 'Orioles', franchise: Franchise.find_by_abbr('BAL'), league: League.find_by_abbr('AL')},
 	{abbr: 'BOS', city: 'Boston', name: 'Red Sox', franchise: Franchise.find_by_abbr('BOS'), league: League.find_by_abbr('AL')},
 	{abbr: 'CHW', city: 'Chicago', name: 'White Sox', franchise: Franchise.find_by_abbr('CHW'), league: League.find_by_abbr('AL')},
