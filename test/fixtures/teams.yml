@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  franchise_id: 
+  abbr: MyString
+  city: MyString
+  name: MyString
+
+two:
+  franchise_id: 
+  abbr: MyString
+  city: MyString
+  name: MyString

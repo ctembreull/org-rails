@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805185243) do
+ActiveRecord::Schema.define(version: 20130805193909) do
 
   create_table "franchises", force: true do |t|
     t.string   "abbr"
@@ -28,5 +28,16 @@ ActiveRecord::Schema.define(version: 20130805185243) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "teams", force: true do |t|
+    t.integer  "franchise_id"
+    t.string   "abbr"
+    t.string   "city"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["franchise_id"], name: "index_teams_on_franchise_id"
 
 end
