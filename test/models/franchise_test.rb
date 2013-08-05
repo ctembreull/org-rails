@@ -17,6 +17,13 @@ class FranchiseTest < ActiveSupport::TestCase
 		assert f.invalid?
 		assert_equal ["has already been taken"], f.errors[:abbr]
 	end
-		
+	
+	test "logo returns predictable string" do
+		assert_equal "logo/franchise/nyy.gif", franchises(:nyy).logo
+	end
+	
+	test "wordmark returns predictable string" do
+		assert_equal "logo/franchise/nyy_wordmark.gif", franchises(:nyy).wordmark
+	end
 		
 end

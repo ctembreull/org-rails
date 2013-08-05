@@ -33,6 +33,14 @@ class FranchisesControllerTest < ActionController::TestCase
     get :show, id: @franchise
     assert_response :success
   end
+	
+	test "should find logo in assets" do
+		assert_not_nil Org::Application.assets.find_asset(@franchise.logo)
+	end
+	
+	test "should find wordmark in assets" do
+		assert_not_nil Org::Application.assets.find_asset(@franchise.wordmark)
+	end
 
   test "should get edit" do
     get :edit, id: @franchise

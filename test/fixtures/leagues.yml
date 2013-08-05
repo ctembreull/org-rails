@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+american:
+  abbr: AL
+  name: American League
+  level: MLB
+
+pacific_coast:
+  abbr: PCL
+  name: Pacific Coast League
+  level: AAA
