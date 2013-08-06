@@ -1,31 +1,24 @@
-<h1>Listing franchises</h1>
+<div class="row">
+	<div id="al_west" class="col-lg-3 col-lg-offset-1">
+		<h4>AL West</h4>
+		<%= render partial: 'division_teams.html', collection: @franchises.al_west.alphabetical, as: :franchise %>
+	</div>
+	<div id="al_central" class="col-lg-3 col-lg-offset-1">
+		<%= render partial: 'division_teams.html', collection: @franchises.al_central.alphabetical, as: :franchise %>
+	</div>
+	<div id="al_east" class="col-lg-3 col-lg-offset-1">
+		<%= render partial: 'division_teams.html', collection: @franchises.al_east.alphabetical, as: :franchise %>
+	</div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Abbr</th>
-      <th>City</th>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @franchises.each do |franchise| %>
-      <tr>
-        <td><%= franchise.abbr %></td>
-        <td><%= franchise.city %></td>
-        <td><%= franchise.name %></td>
-        <td><%= link_to 'Show', franchise %></td>
-        <td><%= link_to 'Edit', edit_franchise_path(franchise) %></td>
-        <td><%= link_to 'Destroy', franchise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Franchise', new_franchise_path %>
+<div class="row">
+	<div id="nl_west" class="col-lg-3 col-lg-offset-1">
+		<%= render partial: 'division_teams.html', collection: @franchises.nl_west.alphabetical, as: :franchise %>
+	</div>
+	<div id="nl_central" class="col-lg-3 col-lg-offset-1">
+		<%= render partial: 'division_teams.html', collection: @franchises.nl_central.alphabetical, as: :franchise %>
+	</div>
+	<div id="nl_east" class="col-lg-3 col-lg-offset-1">
+		<%= render partial: 'division_teams.html', collection: @franchises.nl_east.alphabetical, as: :franchise %>
+	</div>
+</div>
