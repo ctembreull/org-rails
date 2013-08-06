@@ -11,7 +11,7 @@ class Player < ActiveRecord::Base
 	scope :on_40, -> { where("on_40 = 't'") }
 	scope :active, -> { where("retired = 'f'") }
 	scope :free_agents, -> { where('franchise_id IS NULL') }
-	scope :by_level, ->(level), { joins(:league).where('leagues.level = ?', level) }
+	scope :by_level, ->(level) { joins(:league).where('leagues.level = ?', level) }
 	scope :by_position, ->(position) { where{position.like_any "%#{position}%"} }
 	scope :infielders, -> { where{position.like_any %w[1B 2B 3B SS C].map{|p| "%#{p}%"}} }
 	scope :outfielders, -> { where{position.like_any %w[OF CF LF RF].map{|p| "%#{p}%"}} }
@@ -27,5 +27,23 @@ class Player < ActiveRecord::Base
 	scope :bats_left, -> { where("bats = 'L'") }
 	scope :bats_right, -> { where("bats = 'R'") }
 	scope :bats_switch, -> { where("bats = 'S'") }
+	
+	def first_last
+		[first_name, last_name].join(' ')
+	end
+	
+	def last_first
+		[last_name, first_name].join(' ')
+	end
+	
+	def age
+		return '' if birth_date.nil?
+		(Date.today - birth_date).to_i / 365
+	end
+	
+	def name_position
+		positions = position.split(/,\s*/)
+		first_last + ", #{positions[0]}"
+	end
 	
 end

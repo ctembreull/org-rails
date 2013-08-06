@@ -10,6 +10,8 @@ class FranchisesController < ApplicationController
   # GET /franchises/1
   # GET /franchises/1.json
   def show
+		@players = @franchise.players
+		@teams   = @franchise.teams
   end
 
   # GET /franchises/new

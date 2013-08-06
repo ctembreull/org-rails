@@ -20,6 +20,9 @@ class PlayersController < ApplicationController
   # GET /players/1/edit
   def edit
   end
+	
+	def list
+	end
 
   # POST /players
   # POST /players.json

@@ -8,6 +8,10 @@ class Franchise < ActiveRecord::Base
 	
 	include Divisions
 
+	def full_name
+		[city, name].join(' ')
+	end
+
 	def logo
 		"logo/#{self.class.to_s.downcase}/#{abbr.downcase}.gif"
 	end

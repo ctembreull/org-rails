@@ -1,19 +1,36 @@
-<p id="notice"><%= notice %></p>
+<h1>Franchise: <%= @franchise.full_name %></h1>
 
-<p>
-  <strong>Abbr:</strong>
-  <%= @franchise.abbr %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @franchise.city %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @franchise.name %>
-</p>
+
+
+<% unless notice.nil? %>
+<div class="yui3-alert yui3-alert-warning" id="notice"><%= notice %></div>
+<% end %>
+
+<div>
+	<h2>Teams</h2>
+	<table class="pure-table">
+		<% %w(MLB AAA AA A+ A A-SS R).each do |level| %>
+			<% @franchise.teams.each do |team| %>
+				<% if team.level == level %>
+				<tr>
+					<td><%= team.level %></td>
+					<td><%= link_to team.full_name, team %></td>
+				</tr>
+				<% end %>
+			<% end %>
+		<% end %>
+	</table>
+</div>
+
+<div>
+	<h2>Players</h2>
+	<table class="pure-table">
+ 		<%= render partial: '/players/list', collection: @franchise.players %>
+	</table>
+</div>
+
 
 <%= link_to 'Edit', edit_franchise_path(@franchise) %> |
 <%= link_to 'Back', franchises_path %>

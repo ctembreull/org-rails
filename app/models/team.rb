@@ -12,6 +12,10 @@ class Team < ActiveRecord::Base
 		league.level
 	end
 	
+	def full_name
+		[city, name].join(' ')
+	end
+	
 	def logo
 		"logo/#{self.class.to_s.downcase}/#{self.abbr.downcase}.gif"
 	end
