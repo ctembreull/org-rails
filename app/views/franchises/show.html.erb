@@ -9,7 +9,7 @@
 		<h4>Teams</h4>
 		<table class="table table-condensed">
 			<% %w(MLB AAA AA A+ A A-SS R).each do |level| %>
-				<% @franchise.teams.each do |team| %>
+				<% @teams.each do |team| %>
 					<% if team.level == level %>
 					<tr>
 						<td><%= team.level %></td>
