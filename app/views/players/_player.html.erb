@@ -1,0 +1,15 @@
+
+	<tr class="<%= 'danger' if player.on_dl %> <%= 'warning' if player.suspended %>">
+		<td><%= player.position %>
+		<td><%= link_to player.first_last, player %></td>
+		<td>
+			<% unless player.team.nil? %>
+			<%= link_to "#{player.team.city} [#{player.team.level}]", player.team %>
+			<% end %>
+		</td>
+		<td><%= player.bats %> / <%= player.throws %></td>
+		<td><%= player.height / 12 %>'<%= player.height % 12 %>"</td>
+		<td><%= player.weight  %></td>
+		<td><%= player.age %></td>
+		<td><%= player.birth_date %></td>
+	</tr>

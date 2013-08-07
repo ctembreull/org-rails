@@ -250,10 +250,52 @@ Team.create([
 ])
 
 Player.delete_all
-Player.create({
-	pid: 'zuninmi01',
-	franchise: Franchise.find_by_abbr('SEA'), team: Team.find_by_abbr('SEA'),
-	first_name: 'Mike', last_name: 'Zunino', height: 74, weight: 220, bats: 'R', throws: 'R', position: 'C',
-	on_25: true, on_40: true
-})
 
+#Mariners
+f = Franchise.find_by_abbr('SEA')
+sea = Team.find_by_abbr('SEA')
+tac = Team.find_by_abbr('TAC')
+jac = Team.find_by_abbr('JAG')
+
+Player.create([
+	{pid: 'cappsca01', franchise: f, team: sea, first_name: 'Carter', last_name: 'Capps', height: 77, weight: 210, bats: 'R', throws: 'R', position: 'RP', birth_date: Date.new(1990,8,7), on_25: true, on_40: true},
+	{pid: 'iwakuhi01', franchise: f, team: sea, first_name: 'Hisashi', last_name: 'Iwakuma', height: 75, weight: 210, bats: 'R', throws: 'R', position: 'SP', birth_date: Date.new(1981,4,12), on_25:  true, on_40: true},
+	{pid: 'maurebr01', franchise: f, team: sea, first_name: 'Brandon', last_name: 'Maurer', height: 77, weight: 215, bats: 'R', throws: 'R', position: 'SP,RP', birth_date: Date.new(1990,7,3), on_25: true, on_40: true},
+	{pid: 'farquda01', franchise: f, team: sea, first_name: 'Danny', last_name: 'Farquhar', height: 69, weight: 180, bats: 'R', throws: 'R', position: 'RP', birth_date: Date.new(1987,2,17), on_25: true, on_40: true},
+	{pid: 'ramirer01', franchise: f, team: sea, first_name: 'Erasmo', last_name: 'Ramirez', height: 71, weight: 200, bats: 'R', throws: 'R', position: 'SP', birth_date: Date.new(1990,5,2), on_25: true, on_40: true},
+	{pid: 'furbuch01', franchise: f, team: sea, first_name: 'Charlie``', last_name: 'Furbush', height: 77, weight: 215, bats: 'L', throws: 'L', position: 'RP', birth_date: Date.new(1986,4,11), on_25: true, on_40: true},
+	{pid: 'medinyo01', franchise: f, team: sea, first_name: 'Yoervis', last_name: 'Medina', height: 75, weight: 245, bats: 'R', throws: 'R', position: 'RP', birth_date: Date.new(1988,7,27), on_25: true, on_40: true},
+	{pid: 'luetglu01', franchise: f, team: sea, first_name: 'Lucas', last_name: 'Luetge', height: 76, weight: 205, bats: 'L', throws: 'L', position: 'RP', birth_date: Date.new(1987,3,24), on_25: true, on_40: true},
+	{pid: 'saundjo01', franchise: f, team: sea, first_name: 'Joe', last_name: 'Saunders', height: 75, weight: 215, bats: 'L', throws: 'L', position: 'SP', birth_date: Date.new(1981,6,16), on_25: true, on_40: true},
+	{pid: 'perezol01', franchise: f, team: sea, first_name: 'Oliver', last_name: 'Perez', height: 75, weight: 220, bats: 'L', throws: 'L', position: 'RP', birth_date: Date.new(1981,8,15), on_25: true, on_40: true},
+	{pid: 'haranaa01', franchise: f, team: sea, first_name: 'Aaron', last_name: 'Harang', height: 79, weight: 255, bats: 'R', throws: 'R', position: 'SP', birth_date: Date.new(1978,5,9), on_25: true, on_40: true},
+	{pid: 'hernafe02', franchise: f, team: sea, first_name: 'Felix', last_name: 'Hernandez', height: 75, weight: 230, bats: 'R', throws: 'R', position: 'SP', birth_date: Date.new(1986,4,8), on_25: true, on_40: true},
+	{pid: 'chaveen01', franchise: f, team: sea, first_name: 'Endy', last_name: 'Chavez', height: 71, weight: 170, bats: 'L', throws: 'L', position: 'OF', birth_date: Date.new(1978,2,7), on_25: true, on_40: true},
+	{pid: 'quinthu01', franchise: f, team: sea, first_name: 'Humberto', last_name: 'Quintero', height: 69, weight: 215, bats: 'R', throws: 'R', position: 'C', birth_date: Date.new(1979,8,2), on_25: true, on_40: true},
+	{pid: 'millebr01', franchise: f, team: sea, first_name: 'Brad', last_name: 'Miller', height: 74, weight: 185, bats: 'L', throws: 'R', position: 'SS', birth_date: Date.new(1989,8,18), on_25: true, on_40: true},
+	{pid: 'frankni01', franchise: f, team: sea, first_name: 'Nick', last_name: 'Franklin', height: 73, weight: 195, bats: 'S', throws: 'R', position: '2B', birth_date: Date.new(1991,3,2), on_25: true, on_40: true},
+	{pid: 'ibanera01', franchise: f, team: sea, first_name: 'Raul', last_name: 'Ibanez', height: 74, weight: 225, bats: 'L', throws: 'R', position: 'LF', birth_date: Date.new(1972,6,2), on_25: true, on_40: true},
+	{pid: 'ackledu01', franchise: f, team: sea, first_name: 'Dustin', last_name: 'Ackley', height: 73, weight: 195, bats: 'L', throws: 'R', position: '2B,OF', birth_date: Date.new(1988,2,26), on_25: true, on_40: true},
+	{pid: 'seageky01', franchise: f, team: sea, first_name: 'Kyle', last_name: 'Seager', height: 72, weight: 215, bats: 'L', throws: 'R', position: '3B', birth_date: Date.new(1987,11,3), on_25: true, on_40: true},
+	{pid: 'morsemi01', franchise: f, team: sea, first_name: 'Mike', last_name: 'Morse', height: 77, weight: 245, bats: 'R', throws: 'R', position: 'OF,DH', birth_date: Date.new(1982,3,22), on_25: true, on_40: true},
+	{pid: 'blanche01', franchise: f, team: sea, first_name: 'Henry', last_name: 'Blanco', height: 71, weight: 220, bats: 'R', throws: 'R', position: 'C', birth_date: Date.new(1971,8,29), on_25: true, on_40: true},
+	{pid: 'moralke01', franchise: f, team: sea, first_name: 'Kendrys', last_name: 'Morales', height: 73, weight: 220, bats: 'S', throws: 'R', position: 'DH,1B', birth_date: Date.new(1983,6,20), on_25: true, on_40: true},
+	{pid: 'ryanbr01',  franchise: f, team: sea, first_name: 'Brendan', last_name: 'Ryan', height: 74, weight: 195, bats: 'R', throws: 'R', position: 'SS', birth_date: Date.new(1982,3,26), on_25: true, on_40: true},
+	{pid: 'smoakju01', franchise: f, team: sea, first_name: 'Justin', last_name: 'Smoak', height: 76, weight: 220, bats: 'S', throws: 'L', position: '1B', birth_date: Date.new(1986,12,5), on_25: true, on_40: true},
+	{pid: 'saundmi01', franchise: f, team: sea, first_name: 'Michael', last_name: 'Saunders', height: 76, weight: 225, bats: 'L', throws: 'R', position: 'OF', birth_date: Date.new(1986,11,19), on_25: true, on_40: true},
+	{pid: 'ruffich02', franchise: f, team: tac, first_name: 'Chance', last_name: 'Ruffin', height: 72, weight: 195, bats: 'R', throws: 'R', position: 'RP', birth_date: Date.new(1988,9,8), on_25: false, on_40: true},
+	{pid: 'wilheto01', franchise: f, team: tac, first_name: 'Tom', last_name: 'Wilhelmsen', height: 78, weight: 220, bats: 'R', throws: 'R', position: 'RP', birth_date: Date.new(1983,12,16), on_25: false, on_40: true},
+	{pid: 'pryorst01', franchise: f, team: nil, first_name: 'Stephen', last_name: 'Pryor', height: 76, weight: 250, bats: 'R', throws: 'R', position: 'RP', birth_date: Date.new(1989,7,23), on_25: false, on_40: true, on_dl: true},
+	{pid: 'noesihe01', franchise: f, team: tac, first_name: 'Hector', last_name: 'Noesi', height: 75, weight: 205, bats: 'R', throws: 'R', position: 'SP,RP', birth_date: Date.new(1987,1,26), on_25: false, on_40: true},
+	{pid: 'hultzda01', franchise: f, team: nil, first_name: 'Danny', last_name: 'Hultzen', height: 75, weight: 200, bats: 'L', throws: 'L', position: 'SP', birth_date: Date.new(1989,11,28), on_25: false, on_40: true, on_dl: true},
+	{pid: 'lafrobo01', franchise: f, team: tac, first_name: 'Bobby', last_name: 'LaFromboise', height: 76, weight: 215, bats: 'L', throws: 'L', position: 'RP', birth_date: Date.new(1986,6,25), on_25: false, on_40: true},
+	{pid: 'beavabl01', franchise: f, team: tac, first_name: 'Blake', last_name: 'Beavan', height: 79, weight: 255, bats: 'R', throws: 'R', position: 'SP,RP', birth_date: Date.new(1989,1,17), on_25: false, on_40: true},
+	{pid: 'fernaan02', franchise: f, team: jac, first_name: 'Anthony', last_name: 'Fernandez', height: 76, weight: 210, bats: 'L', throws: 'L', position: 'SP,RP', birth_date: Date.new(1990,6,8), on_25: false, on_40: true},
+	{pid: 'triunca01', franchise: f, team: tac, first_name: 'Carlos', last_name: 'Triunfel', height: 71, weight: 205, bats: 'R', throws: 'R', position: '2B,SS', birth_date: Date.new(1990,2,27), on_25: false, on_40: true},
+	{pid: 'morbaju01', franchise: f, team: jac, first_name: 'Julio', last_name: 'Morban', height: 73, weight: 205, bats: 'L', throws: 'L', position: 'OF', birth_date: Date.new(1992,2,13), on_25: false, on_40: true},
+	{pid: 'zuninmi01', franchise: f, team: nil, first_name: 'Mike', last_name: 'Zunino', height: 74, weight: 220, bats: 'R', throws: 'R', position: 'C', birth_date: Date.new(1991,3,25), on_25: false, on_40: true, on_dl: true},
+	{pid: 'pegueca01', franchise: f, team: tac, first_name: 'Carlos', last_name: 'Peguero', height: 77, weight: 255, bats: 'L', throws: 'L', position: 'OF', birth_date: Date.new(1987,2,22), on_25: true, on_40: true},
+	{pid: 'sucreje01', franchise: f, team: nil, first_name: 'Jesus', last_name: 'Sucre', height: 72, weight: 225, bats: 'R', throws: 'R', position: 'C', birth_date: Date.new(1988,4,30), on_25: false, on_40: true, on_dl: true},
+	{pid: 'monteje01', franchise: f, team: nil, first_name: 'Jesus', last_name: 'Montero', height: 73, weight: 230, bats: 'R', throws: 'R', position: 'C', birth_date: Date.new(1989,11,28), on_25: false, on_40: true, suspended: true},
+	{pid: 'gutiefr01', franchise: f, team: nil, first_name: 'Franklin', last_name: 'Gutierrez', height: 74, weight: 195, bats: 'R', throws: 'R', position: 'CF', birth_date: Date.new(1983,2,21), on_25: false, on_40: true, on_dl: true},
+])

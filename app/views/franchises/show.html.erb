@@ -25,6 +25,10 @@
 	<!-- PLAYERS SECTION -->
 	<div class="col-lg-8">
 		<h4>Players</h4>
-	 	<%= render partial: '/players/list', collection: @franchise.players %>
+		<table class="table table-condensed">
+			<% @players.each do |player| %>
+			<%= render player %>
+			<% end %>
+		</table>
 	</div>
 </div>
