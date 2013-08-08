@@ -10,8 +10,36 @@ class FranchisesController < ApplicationController
   # GET /franchises/1
   # GET /franchises/1.json
   def show
-		@players = @franchise.players.alphabetical.includes(:team)
+		@view = params[:view] || 'bio'
+		@roster = params[:roster] || 'full'
+		@team = params[:team]
+		@selected_team = nil
+		
+		logger.info "TEAM: #{@team}"
+		
+		@players = @franchise.players.active.alphabetical.includes(:team)
+		unless @roster.nil?
+			@players = @players.on_40 if @roster == '40'
+			@players = @players.on_dl if @roster == 'dl'
+			@players = @players.unavailable if @roster == 'unavailable'
+		end		
+		
+		# Filter down by selected team if set
+		unless @team.nil?
+			@players = @players.where('team_id = ?', @team)
+			@selected_team = Team.find(@team)
+		end
+		
 		@teams   = @franchise.teams.includes(:league)
+		
+		
+		respond_to do |format|
+			format.html { render :show }
+			format.js
+		end
+		
+		
+		
   end
 
   # GET /franchises/new

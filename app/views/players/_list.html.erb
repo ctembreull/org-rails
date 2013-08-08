@@ -1,5 +1,9 @@
 <table class="table table-condensed data-table table-striped">
-	<% @players.each do |player| %>
-	<%= render player %>
+	<% if @players.empty? %>
+	<tr><td class="text-center">No players found.</td></tr>
+	<% else %>
+		<% @players.each do |player| %>
+		<%= render player %>
+		<% end %>
 	<% end %>
 </table>

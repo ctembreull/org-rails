@@ -1,0 +1,3 @@
+$("#players_filter").html("<%= escape_javascript render 'franchises/filter' %>");
+$("#players_container").html("<%= escape_javascript render 'players/list' %>");
+$("#players_count").html("<%= @players.size %>");

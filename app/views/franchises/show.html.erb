@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="row">
-	<div class="col-lg-4">
+	<div class="col-lg-3">
 		<h4>Teams</h4>
 		<table class="table table-condensed">
 			<% %w(MLB AAA AA A+ A A-SS R).each do |level| %>
@@ -23,8 +23,13 @@
 	</div>
 	
 	<!-- PLAYERS SECTION -->
-	<div class="col-lg-8">
-		<h4>Players</h4>
-		<%= render partial: 'players/list' %>
+	<div class="col-lg-9">
+		<h4>Players (<span id="players_count"><%= @players.size %></span>)</h4>
+		<div id="players_filter">
+			<%= render partial: 'franchises/filter' %>
+		</div>
+		<div id="players_container">
+			<%= render partial: 'players/list' %>
+		</div>
 	</div>
 </div>

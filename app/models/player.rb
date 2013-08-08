@@ -10,6 +10,8 @@ class Player < ActiveRecord::Base
 	scope :alphabetical, -> { order('last_name ASC') }
 	scope :on_40, -> { where("on_40 = 't'") }
 	scope :active, -> { where("retired = 'f'") }
+	scope :unavailable, -> { where{(suspended == true) | (on_paternity == true) | (on_bereavement == true)} }
+	scope :on_dl, -> { where{(on_dl == true)} }
 	scope :free_agents, -> { where('franchise_id IS NULL') }
 	scope :by_level, ->(level) { joins(:league).where('leagues.level = ?', level) }
 	scope :by_position, ->(position) { where{position.like_any "%#{position}%"} }
