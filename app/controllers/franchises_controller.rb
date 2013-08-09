@@ -10,6 +10,9 @@ class FranchisesController < ApplicationController
   # GET /franchises/1
   # GET /franchises/1.json
   def show
+		logger.info(Org::Application.config.assets.paths)
+		
+		
 		@view = params[:view] || 'bio'
 		@roster = params[:roster] || 'full'
 		@team = params[:team]
