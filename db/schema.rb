@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805203548) do
+ActiveRecord::Schema.define(version: 20130809204419) do
+
+  create_table "disabled_players", force: true do |t|
+    t.integer  "franchise_id"
+    t.integer  "player_id"
+    t.integer  "year"
+    t.integer  "length"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "reason"
+    t.boolean  "rehab"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "disabled_players", ["franchise_id"], name: "index_disabled_players_on_franchise_id"
+  add_index "disabled_players", ["player_id"], name: "index_disabled_players_on_player_id"
 
   create_table "franchises", force: true do |t|
     t.string   "abbr"
@@ -67,5 +83,20 @@ ActiveRecord::Schema.define(version: 20130805203548) do
 
   add_index "teams", ["franchise_id"], name: "index_teams_on_franchise_id"
   add_index "teams", ["league_id"], name: "index_teams_on_league_id"
+
+  create_table "unavailable_players", force: true do |t|
+    t.integer  "franchise_id"
+    t.integer  "player_id"
+    t.integer  "year"
+    t.integer  "length"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "unavailable_players", ["franchise_id"], name: "index_unavailable_players_on_franchise_id"
+  add_index "unavailable_players", ["player_id"], name: "index_unavailable_players_on_player_id"
 
 end

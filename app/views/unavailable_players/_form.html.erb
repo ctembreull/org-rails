@@ -1,0 +1,45 @@
+<%= form_for(@unavailable_player) do |f| %>
+  <% if @unavailable_player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@unavailable_player.errors.count, "error") %> prohibited this unavailable_player from being saved:</h2>
+
+      <ul>
+      <% @unavailable_player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :franchise %><br>
+    <%= f.text_field :franchise %>
+  </div>
+  <div class="field">
+    <%= f.label :player %><br>
+    <%= f.text_field :player %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.number_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :reason %><br>
+    <%= f.text_area :reason %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  franchise_id: 
+  player_id: 
+  year: 1
+  length: 1
+  start_date: 2013-08-09
+  end_date: 2013-08-09
+  reason: MyText
+
+two:
+  franchise_id: 
+  player_id: 
+  year: 1
+  length: 1
+  start_date: 2013-08-09
+  end_date: 2013-08-09
+  reason: MyText

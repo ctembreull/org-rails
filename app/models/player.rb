@@ -1,6 +1,8 @@
 class Player < ActiveRecord::Base
   belongs_to :franchise
   belongs_to :team
+	has_many :disabled_players	#these are DL entries historically
+	has_many :unavailable_players		#eg suspended, paternity, bereavement
 	
 	validates :pid, :first_name, :last_name, :bats, :throws, presence: true
 	validates :pid, uniqueness: true
@@ -47,5 +49,37 @@ class Player < ActiveRecord::Base
 		positions = position.split(/,\s*/)
 		first_last + ", #{positions[0]}"
 	end
+	
+	##
+	# dl management methods
+	##
+	def to_disabled_list(length=15, start_date=Date.today, reason)
+		if (self.disabled_players.current.take.nil?)
+			DisabledPlayer.create({franchise: self.franchise, player: self, year: 2013, length: length, start_date: start_date, reason: reason, rehab: false})
+		else 
+			self.disabled_players.current.take.update({length: length, reason: reason})
+		end
+		update({on_dl: true, team: nil})
+	end
+	
+	def to_rehab(assigned_team)
+		self.disabled_players.current.take.update({rehab: true}) unless self.disabled_players.current.length == 0
+		update({team: assigned_team})
+	end
+	
+	def from_disabled_list(end_date=Date.today, assigned_team)
+		self.disabled_players.current.take.update({end_date: end_date, rehab: false}) unless self.disabled_players.current.length == 0
+		update({on_dl: false, team: assigned_team})
+	end
+	
+	def on_rehab?
+		on_dl == true && !team.nil?
+	end
+	
+	def unavailable?
+		suspended == true || on_bereavement == true || on_paternity == true
+	end
+	
+	
 	
 end

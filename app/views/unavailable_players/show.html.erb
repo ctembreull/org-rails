@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Franchise:</strong>
+  <%= @unavailable_player.franchise %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @unavailable_player.player %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @unavailable_player.year %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @unavailable_player.length %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @unavailable_player.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @unavailable_player.end_date %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @unavailable_player.reason %>
+</p>
+
+<%= link_to 'Edit', edit_unavailable_player_path(@unavailable_player) %> |
+<%= link_to 'Back', unavailable_players_path %>

@@ -2,6 +2,7 @@ class Team < ActiveRecord::Base
   belongs_to :franchise
 	belongs_to :league
 	has_many :players
+	has_many :disabled_players, through: :players
 	
 	validates :abbr, :city, :name, presence: true
 	validates :abbr, uniqueness: true

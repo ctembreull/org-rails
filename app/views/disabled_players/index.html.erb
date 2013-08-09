@@ -1,0 +1,41 @@
+<h1>Listing disabled_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Franchise</th>
+      <th>Player</th>
+      <th>Year</th>
+      <th>Length</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Reason</th>
+      <th>Rehab</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disabled_players.each do |disabled_player| %>
+      <tr>
+        <td><%= disabled_player.franchise %></td>
+        <td><%= disabled_player.player %></td>
+        <td><%= disabled_player.year %></td>
+        <td><%= disabled_player.length %></td>
+        <td><%= disabled_player.start_date %></td>
+        <td><%= disabled_player.end_date %></td>
+        <td><%= disabled_player.reason %></td>
+        <td><%= disabled_player.rehab %></td>
+        <td><%= link_to 'Show', disabled_player %></td>
+        <td><%= link_to 'Edit', edit_disabled_player_path(disabled_player) %></td>
+        <td><%= link_to 'Destroy', disabled_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disabled player', new_disabled_player_path %>

@@ -21,7 +21,6 @@ module Org
     # config.i18n.default_locale = :de
 		
 		# Add our font directory to assets
-		config.assets.enabled = true
-		config.assets.path << Rails.root.join("app", "assets", "fonts")
+		config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

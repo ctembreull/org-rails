@@ -1,0 +1,15 @@
+
+<tr class="<%= 'danger' if player.on_dl %> <%= 'warning' if player.suspended %>">
+	<td><%= player.position %>
+	<td><%= link_to player.first_last, player %></td>
+	<td>
+		<% unless player.team.nil? %>
+		<%= link_to "#{player.team.city} [#{player.team.level}]", player.team %>
+		<%= "(Rehab)" if player.on_rehab? %>
+		<% end %>
+	</td>
+	<td><%= player.disabled_players.current.take.length %>-day DL</td>
+	<td><%= player.disabled_players.current.take.start_date %></td>
+	<td><%= player.disabled_players.current.take.reason %></td>
+	<td id="player_<%= player.id %>_controls"><%= render 'players/controls', player: player %></td>
+</tr>

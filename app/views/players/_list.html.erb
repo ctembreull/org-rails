@@ -3,7 +3,7 @@
 	<tr><td class="text-center">No players found.</td></tr>
 	<% else %>
 		<% @players.each do |player| %>
-		<%= render player %>
+		<%= render @view_template, player: player %>
 		<% end %>
 	<% end %>
 </table>

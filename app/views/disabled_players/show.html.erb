@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Franchise:</strong>
+  <%= @disabled_player.franchise %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @disabled_player.player %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @disabled_player.year %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @disabled_player.length %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @disabled_player.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @disabled_player.end_date %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @disabled_player.reason %>
+</p>
+
+<p>
+  <strong>Rehab:</strong>
+  <%= @disabled_player.rehab %>
+</p>
+
+<%= link_to 'Edit', edit_disabled_player_path(@disabled_player) %> |
+<%= link_to 'Back', disabled_players_path %>

@@ -10,15 +10,13 @@ class FranchisesController < ApplicationController
   # GET /franchises/1
   # GET /franchises/1.json
   def show
-		logger.info(Org::Application.config.assets.paths)
-		
-		
 		@view = params[:view] || 'bio'
 		@roster = params[:roster] || 'full'
 		@team = params[:team]
 		@selected_team = nil
 		
 		@view = 'bio' if ((@roster != 'dl' and @view == 'dl') or (@roster != 'unavailable' and @view == 'unavailable'))
+		@view_template = "players/player_#{@view}"
 		
 		@players = @franchise.players.active.alphabetical.includes(:team)
 		unless @roster.nil?
@@ -35,14 +33,10 @@ class FranchisesController < ApplicationController
 		
 		@teams   = @franchise.teams.includes(:league)
 		
-		
 		respond_to do |format|
 			format.html { render :show }
 			format.js
 		end
-		
-		
-		
   end
 
   # GET /franchises/new

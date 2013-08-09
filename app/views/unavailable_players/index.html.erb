@@ -1,0 +1,39 @@
+<h1>Listing unavailable_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Franchise</th>
+      <th>Player</th>
+      <th>Year</th>
+      <th>Length</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Reason</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unavailable_players.each do |unavailable_player| %>
+      <tr>
+        <td><%= unavailable_player.franchise %></td>
+        <td><%= unavailable_player.player %></td>
+        <td><%= unavailable_player.year %></td>
+        <td><%= unavailable_player.length %></td>
+        <td><%= unavailable_player.start_date %></td>
+        <td><%= unavailable_player.end_date %></td>
+        <td><%= unavailable_player.reason %></td>
+        <td><%= link_to 'Show', unavailable_player %></td>
+        <td><%= link_to 'Edit', edit_unavailable_player_path(unavailable_player) %></td>
+        <td><%= link_to 'Destroy', unavailable_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unavailable player', new_unavailable_player_path %>
