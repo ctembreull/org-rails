@@ -12,4 +12,6 @@
 		<td><%= player.weight  %></td>
 		<td><%= player.age %></td>
 		<td><%= player.birth_date %></td>
+		<td id="player_<%= player.id %>_controls"><%= render 'players/controls', player: player %></td>
+		</td>
 	</tr>

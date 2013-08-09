@@ -15,7 +15,7 @@ class FranchisesController < ApplicationController
 		@team = params[:team]
 		@selected_team = nil
 		
-		logger.info "TEAM: #{@team}"
+		@view = 'bio' if ((@roster != 'dl' and @view == 'dl') or (@roster != 'unavailable' and @view == 'unavailable'))
 		
 		@players = @franchise.players.active.alphabetical.includes(:team)
 		unless @roster.nil?

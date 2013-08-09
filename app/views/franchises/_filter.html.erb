@@ -1,28 +1,39 @@
 <ul class="nav nav-pills">
 	<li class="disabled"><a href="#">Roster:</a></li>
-	<li id="filter_roster_full" class="filter_roster <%= 'active' if @roster == 'full' %>">
-		<%= link_to 'Full', franchise_path(view: @view, roster: 'full'), remote: true %>
+	<li id="filter_roster_full" class="filter_roster <%= active? @roster, 'full' %>">
+		<%= link_to 'Full', franchise_path(view: @view, roster: 'full', team: @team), remote: true %>
 	</li>
-	<li id="filter_roster_40" class="filter_roster <%= 'active' if @roster == '40' %>">
-		<%= link_to '40-Man', franchise_path(view: @view, roster: '40'), remote: true %>
+	<li id="filter_roster_40" class="filter_roster <%= active? @roster, '40' %>">
+		<%= link_to '40-Man', franchise_path(view: @view, roster: '40', team: @team), remote: true %>
 	</li>
-	<li id="filter_roster_dl" class="filter_roster <%= 'active' if @roster == 'dl' %>">
-		<%= link_to 'DL', franchise_path(view: @view, roster: 'dl'), remote: true %>
+	<li id="filter_roster_dl" class="filter_roster <%= active? @roster, 'dl' %>">
+		<%= link_to 'DL', franchise_path(view: 'dl', roster: 'dl', team: @team), remote: true %>
 	</li>
-	<li id="filter_roster_unavailable" class="filter_roster <%= 'active' if @roster == 'unavailable' %>">
-		<%= link_to 'Unavailable', franchise_path(view: @view, roster: 'unavailable'), remote: true %>
+	<li id="filter_roster_unavailable" class="filter_roster <%= active? @roster, 'unavailable' %>">
+		<%= link_to 'Unavailable', franchise_path(view: 'unavailable', roster: 'unavailable', team: @team), remote: true %>
 	</li>
 	<li class="disabled"><a href="#">Show:</a></li>
-	<li id="filter_view_bio" class="filter_view <%= 'active' if @view == 'bio' %>">
-		<%= link_to 'Bio', franchise_path(view: 'bio', roster: @roster), remote: true %>
+	<% if @roster == 'dl' %>
+	<li id="filter_view_dl" class="filter_view <%= active? @view, 'dl' %>">
+		<%= link_to 'DL', franchise_path(view: 'dl', roster: @roster, team: @team), remote: true %>
 	</li>
-	<li id="filter_view_stats" class="filter_view <%= 'active' if @view == 'stats' %>">
-		<%= link_to 'Stats', franchise_path(view: 'stats', roster: @roster), remote: true %>
+	<% end %>
+	<% if @roster == 'unavailable' %>
+	<li id="filter_view_unavailable" class="filter_view <%= active? @view, 'unavailable' %>">
+		<%= link_to 'Reason', franchise_path(view: 'unavailable', roster: @roster, team: @team), remote: true %>
 	</li>
-	<li id="filter_view_contract" class="filter_view <%= 'active' if @view == 'contract' %>">
-		<%= link_to 'Contract', franchise_path(view: 'contract', roster: @roster), remote: true %>
+	<% end %>
+	<li id="filter_view_bio" class="filter_view <%= active? @view, 'bio' %>">
+		<%= link_to 'Bio', franchise_path(view: 'bio', roster: @roster, team: @team), remote: true %>
+	</li>
+	<li id="filter_view_stats" class="filter_view <%= active? @view, 'stats' %>">
+		<%= link_to 'Stats', franchise_path(view: 'stats', roster: @roster, team: @team), remote: true %>
+	</li>
+	<li id="filter_view_contract" class="filter_view <%= active? @view, 'contract' %>">
+		<%= link_to 'Contract', franchise_path(view: 'contract', roster: @roster, team: @team), remote: true %>
 	</li>
 	
+	<% unless @roster == 'unavailable' %>
 	<li id="filter_team" class="dropdown pull-right">
 		<a id="team_filter" role="button" data-toggle="dropdown" href="#">
 			<% if @team.nil? %>
@@ -43,4 +54,5 @@
 			<% end %>
 		</ul>
 	</li>
+	<% end %>
 </ul>
