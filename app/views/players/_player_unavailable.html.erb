@@ -1,0 +1,20 @@
+
+<tr class="<%= 'danger' if player.on_dl %> <%= 'warning' if player.unavailable? %>">
+	<td><%= player.position %>
+	<td><%= link_to player.first_last, player %></td>
+	<td>
+		<% if player.dfa? %>
+		DFA
+		<% elsif player.restricted? %>
+		Restricted
+		<% else %>
+			<%= player.unavailable_players.current.take.length %>-game
+			<%= 'Paternity Leave' if player.on_paternity %>
+			<%= 'Bereavement Leave' if player.on_bereavement %>
+			<%= 'Suspension' if player.suspended %>
+		<% end %>
+	</td>
+	<td><%= player.unavailable_players.current.take.start_date %></td>
+	<td><%= player.unavailable_players.current.take.reason %></td>
+	<td id="player_<%= player.id %>_controls"><%= render 'players/controls', player: player %></td>
+</tr>

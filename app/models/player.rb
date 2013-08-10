@@ -144,7 +144,10 @@ class Player < ActiveRecord::Base
 			reactivate(date, assigned_team)
 		end
 		update({team: assigned_team, dfa: false, restricted: false, on_bereavement: false, on_paternity: false, suspended: false})
-	end		
+	end
+	
+	def to_free_agency
+		update({franchise: nil, team: nil})
 	
 	def on_rehab?
 		on_dl == true && !team.nil?
