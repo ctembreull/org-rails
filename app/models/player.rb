@@ -12,7 +12,7 @@ class Player < ActiveRecord::Base
 	scope :alphabetical, -> { order('last_name ASC') }
 	scope :on_40, -> { where("on_40 = 't'") }
 	scope :active, -> { where("retired = 'f'") }
-	scope :unavailable, -> { where{(suspended == true) | (on_paternity == true) | (on_bereavement == true)} }
+	scope :unavailable, -> { where{(suspended == true) | (on_paternity == true) | (on_bereavement == true) | (restricted == true) | (dfa == true)} }
 	scope :on_dl, -> { where{(on_dl == true)} }
 	scope :free_agents, -> { where('franchise_id IS NULL') }
 	scope :by_level, ->(level) { joins(:league).where('leagues.level = ?', level) }
@@ -50,34 +50,108 @@ class Player < ActiveRecord::Base
 		first_last + ", #{positions[0]}"
 	end
 	
-	##
-	# dl management methods
-	##
+	# Send a player to the disabled list
 	def to_disabled_list(length=15, start_date=Date.today, reason)
-		if (self.disabled_players.current.take.nil?)
-			DisabledPlayer.create({franchise: self.franchise, player: self, year: 2013, length: length, start_date: start_date, reason: reason, rehab: false})
-		else 
-			self.disabled_players.current.take.update({length: length, reason: reason})
-		end
+		return false if on_dl
+		DisabledPlayer.create({franchise: self.franchise, player: self, year: 2013, length: length, start_date: start_date, reason: reason, rehab: false})
 		update({on_dl: true, team: nil})
 	end
 	
+	# Modify a player's current disabled list entry
+	def update_disabled_list(params)
+		return false unless on_dl
+		params = params.keep_if {|k,v| k == 'length' || k == 'start_date'}
+		self.disabled_players.current.take.update(params)
+	end
+	
+	# Send a currently disabled player to a rehab assignment
 	def to_rehab(assigned_team)
+		return false unless on_dl
 		self.disabled_players.current.take.update({rehab: true}) unless self.disabled_players.current.length == 0
 		update({team: assigned_team})
 	end
 	
+	# Activate player from the disabled list and assign him to a team
 	def from_disabled_list(end_date=Date.today, assigned_team)
+		return false unless on_dl
 		self.disabled_players.current.take.update({end_date: end_date, rehab: false}) unless self.disabled_players.current.length == 0
 		update({on_dl: false, team: assigned_team})
 	end
+	
+	# Place player on the unavailable list
+	def deactivate(length=7, start_date=Date.today, reason)
+		return false if unavailable?
+		UnavailablePlayer.create({player: self, franchise: self.franchise, year: 2013, length: length, start_date: start_date, reason: reason})
+		update({team: nil})
+		#ideally, this would put a scheduled task in that would automatically end the suspension after given games have passed
+	end
+	
+	# Take player off suspension and assign to a team
+	def reactivate(end_date=Date.today, assigned_team)
+		return false unless unavailable?
+		self.unavailable_players.current.take.update({end_date: end_date})
+		update({team: assigned_team})
+	end
+	
+	# Place player on paternity list
+	def to_paternity_list(start_date=Date.today, reason="Placed on paternity list")
+		return false if on_paternity?
+		deactivate(3, start_date, reason)
+		update({on_paternity: true})
+	end
+	
+	# Return player from paternity list
+	def from_paternity_list(end_date=Date.today, assigned_team)
+		return false unless on_paternity?
+		reactivate(end_date, assigned_team)
+		update({on_paternity: false})
+	end
+	
+	# Place player on bereavement list
+	def to_bereavement_list(start_date=Date.today, reason="Placed on bereavement list")
+		return false if on_bereavement?
+		deactivate(3, start_date, reason)
+		update({on_bereavement: true})
+	end
+	
+	# Return player from bereavement list
+	def from_bereavement_list(end_date=Date.today, assigned_team)
+		return false unless on_bereavement?
+		reactivate(end_date, assigned_team)
+		update({on_bereavement: false})
+	end
+	
+	def to_restricted_list(start_date=Date.today, reason="Placed on restricted list")
+		return false if restricted?
+		deactivate(-1, start_date, reason)
+		update({restricted: true})
+	end
+	
+	def from_restricted_list(end_date=Date.today, assigned_team)
+		return false unless restricted?
+		reactivate(end_date, assigned_team)
+		update({restricted: false})
+	end
+	
+	def designate_for_assignment(start_date=Date.today)
+		return false if dfa?
+		deactivate(10, start_date, "Designated for assignment")
+		update({dfa: true})
+	end
+	
+	def assign(date=Date.today, assigned_team)
+		if self.unavailable_players.current.length > 0
+			reactivate(date, assigned_team)
+		end
+		update({team: assigned_team, dfa: false, restricted: false, on_bereavement: false, on_paternity: false, suspended: false})
+	end		
 	
 	def on_rehab?
 		on_dl == true && !team.nil?
 	end
 	
 	def unavailable?
-		suspended == true || on_bereavement == true || on_paternity == true
+		suspended == true || on_bereavement == true || on_paternity == true || restricted == true || dfa == true
 	end
 	
 	

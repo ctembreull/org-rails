@@ -3,6 +3,7 @@ class Franchise < ActiveRecord::Base
 	has_many :leagues, through: :teams
 	has_many :players
 	has_many :disabled_players
+	has_many :unavailable_players
 	
 	validates :abbr, :city, :name, presence: true
   validates :abbr, uniqueness: true

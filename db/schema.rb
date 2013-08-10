@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130809204419) do
+ActiveRecord::Schema.define(version: 20130809225658) do
 
   create_table "disabled_players", force: true do |t|
     t.integer  "franchise_id"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20130809204419) do
     t.boolean  "retired",                  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "dfa",                      default: false
+    t.boolean  "restricted",               default: false
   end
 
   add_index "players", ["franchise_id"], name: "index_players_on_franchise_id"

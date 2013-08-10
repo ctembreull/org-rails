@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Player - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/player.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-age">#age</a>
+    
+    <li><a href="#method-i-deactivate">#deactivate</a>
+    
+    <li><a href="#method-i-designate_for_assignment">#designate_for_assignment</a>
+    
+    <li><a href="#method-i-first_last">#first_last</a>
+    
+    <li><a href="#method-i-from_bereavement_list">#from_bereavement_list</a>
+    
+    <li><a href="#method-i-from_disabled_list">#from_disabled_list</a>
+    
+    <li><a href="#method-i-from_paternity_list">#from_paternity_list</a>
+    
+    <li><a href="#method-i-from_restricted_list">#from_restricted_list</a>
+    
+    <li><a href="#method-i-last_first">#last_first</a>
+    
+    <li><a href="#method-i-name_position">#name_position</a>
+    
+    <li><a href="#method-i-on_rehab-3F">#on_rehab?</a>
+    
+    <li><a href="#method-i-reactivate">#reactivate</a>
+    
+    <li><a href="#method-i-to_bereavement_list">#to_bereavement_list</a>
+    
+    <li><a href="#method-i-to_disabled_list">#to_disabled_list</a>
+    
+    <li><a href="#method-i-to_paternity_list">#to_paternity_list</a>
+    
+    <li><a href="#method-i-to_rehab">#to_rehab</a>
+    
+    <li><a href="#method-i-to_restricted_list">#to_restricted_list</a>
+    
+    <li><a href="#method-i-unavailable-3F">#unavailable?</a>
+    
+    <li><a href="#method-i-update_disabled_list">#update_disabled_list</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./DisabledPlayer.html">DisabledPlayer</a>
+  
+    <li><a href="./DisabledPlayersController.html">DisabledPlayersController</a>
+  
+    <li><a href="./DisabledPlayersHelper.html">DisabledPlayersHelper</a>
+  
+    <li><a href="./Divisions.html">Divisions</a>
+  
+    <li><a href="./Franchise.html">Franchise</a>
+  
+    <li><a href="./FranchisesController.html">FranchisesController</a>
+  
+    <li><a href="./FranchisesHelper.html">FranchisesHelper</a>
+  
+    <li><a href="./League.html">League</a>
+  
+    <li><a href="./LeaguesController.html">LeaguesController</a>
+  
+    <li><a href="./LeaguesHelper.html">LeaguesHelper</a>
+  
+    <li><a href="./Player.html">Player</a>
+  
+    <li><a href="./PlayersController.html">PlayersController</a>
+  
+    <li><a href="./PlayersHelper.html">PlayersHelper</a>
+  
+    <li><a href="./Team.html">Team</a>
+  
+    <li><a href="./TeamsController.html">TeamsController</a>
+  
+    <li><a href="./TeamsHelper.html">TeamsHelper</a>
+  
+    <li><a href="./UnavailablePlayer.html">UnavailablePlayer</a>
+  
+    <li><a href="./UnavailablePlayersController.html">UnavailablePlayersController</a>
+  
+    <li><a href="./UnavailablePlayersHelper.html">UnavailablePlayersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Player</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-age" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">age</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="age-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">age</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">birth_date</span>.<span class="ruby-identifier">nil?</span>
+        (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">birth_date</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">/</span> <span class="ruby-value">365</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- age-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- age-method -->
+
+    
+      <div id="method-i-deactivate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deactivate</span><span
+            class="method-args">(length=7, start_date=Date.today, reason)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Place player on the unavailable list</p>
+          
+
+          
+          <div class="method-source-code" id="deactivate-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deactivate</span>(<span class="ruby-identifier">length</span>=<span class="ruby-value">7</span>, <span class="ruby-identifier">start_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">suspended</span>
+        <span class="ruby-constant">UnavailablePlayer</span>.<span class="ruby-identifier">create</span>({<span class="ruby-identifier">player</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">franchise</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">franchise</span>, <span class="ruby-identifier">year</span><span class="ruby-operator">:</span> <span class="ruby-value">2013</span>, <span class="ruby-identifier">length</span><span class="ruby-operator">:</span> <span class="ruby-identifier">length</span>, <span class="ruby-identifier">start_date</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">reason</span><span class="ruby-operator">:</span> <span class="ruby-identifier">reason</span>})
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">team</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>})
+        <span class="ruby-comment">#ideally, this would put a scheduled task in that would automatically end the suspension after given games have passed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- deactivate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- deactivate-method -->
+
+    
+      <div id="method-i-designate_for_assignment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">designate_for_assignment</span><span
+            class="method-args">(start_date=Date.today)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="designate_for_assignment-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">designate_for_assignment</span>(<span class="ruby-identifier">start_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">dfa</span>
+        <span class="ruby-identifier">deactivate</span>(<span class="ruby-value">10</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-string">&quot;Designated for assignment&quot;</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">dfa</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- designate_for_assignment-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- designate_for_assignment-method -->
+
+    
+      <div id="method-i-first_last" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_last</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="first_last-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">first_last</span>
+        [<span class="ruby-identifier">first_name</span>, <span class="ruby-identifier">last_name</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- first_last-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- first_last-method -->
+
+    
+      <div id="method-i-from_bereavement_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_bereavement_list</span><span
+            class="method-args">(end_date=Date.today, assigned_team)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return player from bereavement list</p>
+          
+
+          
+          <div class="method-source-code" id="from_bereavement_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_bereavement_list</span>(<span class="ruby-identifier">end_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">on_bereavement</span>
+        <span class="ruby-identifier">reactivate</span>(<span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">on_bereavement</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- from_bereavement_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from_bereavement_list-method -->
+
+    
+      <div id="method-i-from_disabled_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_disabled_list</span><span
+            class="method-args">(end_date=Date.today, assigned_team)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Activate player from the disabled list and assign him to a team</p>
+          
+
+          
+          <div class="method-source-code" id="from_disabled_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_disabled_list</span>(<span class="ruby-identifier">end_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">on_dl</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">disabled_players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">take</span>.<span class="ruby-identifier">update</span>({<span class="ruby-identifier">end_date</span><span class="ruby-operator">:</span> <span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">rehab</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>}) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">disabled_players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">on_dl</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">team</span><span class="ruby-operator">:</span> <span class="ruby-identifier">assigned_team</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- from_disabled_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from_disabled_list-method -->
+
+    
+      <div id="method-i-from_paternity_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_paternity_list</span><span
+            class="method-args">(end_date, assigned_team)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return player from paternity list</p>
+          
+
+          
+          <div class="method-source-code" id="from_paternity_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_paternity_list</span>(<span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">on_paternity</span>
+        <span class="ruby-identifier">reactivate</span>(<span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">on_paternity</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- from_paternity_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from_paternity_list-method -->
+
+    
+      <div id="method-i-from_restricted_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_restricted_list</span><span
+            class="method-args">(end_date=Date.today, assigned_team)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from_restricted_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_restricted_list</span>(<span class="ruby-identifier">end_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">restricted</span>
+        <span class="ruby-identifier">reactivate</span>(<span class="ruby-identifier">end_date</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">restricted</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- from_restricted_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from_restricted_list-method -->
+
+    
+      <div id="method-i-last_first" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_first</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="last_first-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last_first</span>
+        [<span class="ruby-identifier">last_name</span>, <span class="ruby-identifier">first_name</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- last_first-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- last_first-method -->
+
+    
+      <div id="method-i-name_position" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name_position</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="name_position-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name_position</span>
+        <span class="ruby-identifier">positions</span> = <span class="ruby-identifier">position</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/,\s*/</span>)
+        <span class="ruby-identifier">first_last</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;, #{positions[0]}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- name_position-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- name_position-method -->
+
+    
+      <div id="method-i-on_rehab-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_rehab?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_rehab-3F-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_rehab?</span>
+        <span class="ruby-identifier">on_dl</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">team</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- on_rehab-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- on_rehab-3F-method -->
+
+    
+      <div id="method-i-reactivate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reactivate</span><span
+            class="method-args">(end_date=Date.today, assigned_team)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Take player off suspension and assign to a team</p>
+          
+
+          
+          <div class="method-source-code" id="reactivate-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reactivate</span>(<span class="ruby-identifier">end_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">suspended</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unavailable_players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">take</span>.<span class="ruby-identifier">update</span>({<span class="ruby-identifier">end_date</span><span class="ruby-operator">:</span> <span class="ruby-identifier">end_date</span>})
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">team</span><span class="ruby-operator">:</span> <span class="ruby-identifier">assigned_team</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reactivate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reactivate-method -->
+
+    
+      <div id="method-i-to_bereavement_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_bereavement_list</span><span
+            class="method-args">(start_date=Date.today, reason)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Place player on bereavement list</p>
+          
+
+          
+          <div class="method-source-code" id="to_bereavement_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_bereavement_list</span>(<span class="ruby-identifier">start_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">on_bereavement</span>
+        <span class="ruby-identifier">deactivate</span>(<span class="ruby-value">3</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">on_bereavement</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_bereavement_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_bereavement_list-method -->
+
+    
+      <div id="method-i-to_disabled_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_disabled_list</span><span
+            class="method-args">(length=15, start_date=Date.today, reason)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Send a player to the disabled list</p>
+          
+
+          
+          <div class="method-source-code" id="to_disabled_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_disabled_list</span>(<span class="ruby-identifier">length</span>=<span class="ruby-value">15</span>, <span class="ruby-identifier">start_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">on_dl</span>
+        <span class="ruby-constant">DisabledPlayer</span>.<span class="ruby-identifier">create</span>({<span class="ruby-identifier">franchise</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">franchise</span>, <span class="ruby-identifier">player</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">year</span><span class="ruby-operator">:</span> <span class="ruby-value">2013</span>, <span class="ruby-identifier">length</span><span class="ruby-operator">:</span> <span class="ruby-identifier">length</span>, <span class="ruby-identifier">start_date</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">reason</span><span class="ruby-operator">:</span> <span class="ruby-identifier">reason</span>, <span class="ruby-identifier">rehab</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>})
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">on_dl</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">team</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_disabled_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_disabled_list-method -->
+
+    
+      <div id="method-i-to_paternity_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_paternity_list</span><span
+            class="method-args">(start_date=Date.today, reason)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Place player on paternity list</p>
+          
+
+          
+          <div class="method-source-code" id="to_paternity_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_paternity_list</span>(<span class="ruby-identifier">start_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">on_paternity</span>
+        <span class="ruby-identifier">deactivate</span>(<span class="ruby-value">3</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">on_paternity</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_paternity_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_paternity_list-method -->
+
+    
+      <div id="method-i-to_rehab" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_rehab</span><span
+            class="method-args">(assigned_team)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Send a currently disabled player to a rehab assignment</p>
+          
+
+          
+          <div class="method-source-code" id="to_rehab-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_rehab</span>(<span class="ruby-identifier">assigned_team</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">on_dl</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">disabled_players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">take</span>.<span class="ruby-identifier">update</span>({<span class="ruby-identifier">rehab</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>}) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">disabled_players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">team</span><span class="ruby-operator">:</span> <span class="ruby-identifier">assigned_team</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_rehab-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_rehab-method -->
+
+    
+      <div id="method-i-to_restricted_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_restricted_list</span><span
+            class="method-args">(start_date=Date.today, reason)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_restricted_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_restricted_list</span>(<span class="ruby-identifier">start_date</span>=<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">restricted</span>
+        <span class="ruby-identifier">deactivate</span>(<span class="ruby-value">-1</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">reason</span>)
+        <span class="ruby-identifier">update</span>({<span class="ruby-identifier">restricted</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_restricted_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_restricted_list-method -->
+
+    
+      <div id="method-i-unavailable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unavailable?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unavailable-3F-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unavailable?</span>
+        <span class="ruby-identifier">suspended</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">on_bereavement</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">on_paternity</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- unavailable-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- unavailable-3F-method -->
+
+    
+      <div id="method-i-update_disabled_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_disabled_list</span><span
+            class="method-args">(params)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Modify a player&#39;s current disabled list entry</p>
+          
+
+          
+          <div class="method-source-code" id="update_disabled_list-source">
+            <pre><span class="ruby-comment"># File app/models/player.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_disabled_list</span>(<span class="ruby-identifier">params</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">on_dl</span>
+        <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">keep_if</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;length&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;start_date&#39;</span>}
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">disabled_players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">take</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_disabled_list-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_disabled_list-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

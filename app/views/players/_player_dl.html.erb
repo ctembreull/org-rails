@@ -1,5 +1,5 @@
 
-<tr class="<%= 'danger' if player.on_dl %> <%= 'warning' if player.suspended %>">
+<tr class="<%= 'danger' if player.on_dl %> <%= 'warning' if player.unavailable? %>">
 	<td><%= player.position %>
 	<td><%= link_to player.first_last, player %></td>
 	<td>
