@@ -3,6 +3,7 @@ class Player < ActiveRecord::Base
   belongs_to :team
 	has_many :disabled_players	#these are DL entries historically
 	has_many :unavailable_players		#eg suspended, paternity, bereavement
+	has_many :stats, class_name: "PlayerStat"
 	
 	validates :pid, :first_name, :last_name, :bats, :throws, presence: true
 	validates :pid, uniqueness: true
