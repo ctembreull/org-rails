@@ -17,6 +17,7 @@ class FranchisesController < ApplicationController
 		
 		@view = 'bio' if ((@roster != 'dl' and @view == 'dl') or (@roster != 'unavailable' and @view == 'unavailable'))
 		@view_template = "players/player_#{@view}"
+		puts "TEMPLATE: #{@view_template}"
 		
 		@players = @franchise.players.active.alphabetical.includes(:team)
 		unless @roster.nil?

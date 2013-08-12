@@ -51,6 +51,13 @@ class Player < ActiveRecord::Base
 		first_last + ", #{positions[0]}"
 	end
 	
+	def default_stats_view
+		p = position.split(/,\s*/)[0].downcase
+		return 'p' if (p == 'sp' || p == 'rp' || p == 'p')
+		return 'b'
+	end
+	
+	
 	# Send a player to the disabled list
 	def to_disabled_list(length=15, start_date=Date.today, reason)
 		return false if on_dl
@@ -149,6 +156,7 @@ class Player < ActiveRecord::Base
 	
 	def to_free_agency
 		update({franchise: nil, team: nil})
+	end
 	
 	def on_rehab?
 		on_dl == true && !team.nil?

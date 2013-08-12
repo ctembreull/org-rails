@@ -1,0 +1,18 @@
+
+<tr class="<%= 'danger' if player.on_dl %> <%= 'warning' if player.unavailable? %>">
+	<td><%= player.position %>
+	<td><%= link_to player.first_last, player %></td>
+	<td>
+		<% if player.team.nil? %>
+			<% if player.dfa? %>
+			DFA
+			<% end %>
+		<% else %>
+		<%= link_to "#{player.team.city} [#{player.team.level}]", player.team %>
+		<% end %>
+	</td>
+	
+	<% STAT_CONFIG['default'][type].each do |stat| %>
+	<td><%= stat.upcase %></td>
+	<% end %>
+</tr>

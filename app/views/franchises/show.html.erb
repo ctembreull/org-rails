@@ -29,7 +29,11 @@
 			<%= render partial: 'franchises/filter' %>
 		</div>
 		<div id="players_container">
-			<%= render partial: 'players/list' %>
+		<% if @view == 'stats' %>
+		<%= render partial: 'players/stats_list' %>
+		<% else %>
+		<%= render partial: 'players/list' %>
+		<% end %>
 		</div>
 	</div>
 </div>

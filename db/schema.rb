@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130809225658) do
+ActiveRecord::Schema.define(version: 20130812201454) do
 
   create_table "disabled_players", force: true do |t|
     t.integer  "franchise_id"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20130809225658) do
     t.datetime "updated_at"
   end
 
+  create_table "player_stats", force: true do |t|
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_stats", ["player_id"], name: "index_player_stats_on_player_id"
+
   create_table "players", force: true do |t|
     t.integer  "franchise_id"
     t.integer  "team_id"
@@ -72,6 +80,15 @@ ActiveRecord::Schema.define(version: 20130809225658) do
 
   add_index "players", ["franchise_id"], name: "index_players_on_franchise_id"
   add_index "players", ["team_id"], name: "index_players_on_team_id"
+
+  create_table "stat_definitions", force: true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.boolean  "raw"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "abbr",       limit: 6
+  end
 
   create_table "teams", force: true do |t|
     t.integer  "franchise_id"

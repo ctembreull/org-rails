@@ -1,0 +1,3 @@
+default:
+  pitching: ['G', 'IP', 'BF', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'K', 'ERA', 'WHIP', 'WHIP']
+  batting:  ['G', 'PA', 'AB', 'H', 'R', 'HR', 'BB', 'SO', 'AVG', 'OBP', 'SLG', 'OPS']

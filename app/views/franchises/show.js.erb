@@ -1,3 +1,7 @@
 $("#players_filter").html("<%= escape_javascript render 'franchises/filter' %>");
+<% if @view == 'stats' %>
+$("#players_container").html("<%= escape_javascript render 'players/stats_list' %>");	
+<% else %>
 $("#players_container").html("<%= escape_javascript render 'players/list' %>");
+<% end %>
 $("#players_count").html("<%= @players.size %>");

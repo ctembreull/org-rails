@@ -1,0 +1,47 @@
+<% if @players.empty? %>
+<table class="table table-condensed data-table table-striped">
+	<tr><td class="text-center">No players found.</td></tr>
+</table>
+<% else %>
+	<% unless @players.hitters.empty? %>
+	<h5>Batters</h5>
+	<table class="table table-condensed data-table table-striped">
+		<thead>
+			<tr>
+				<th>Pos</th>
+				<th>Player</th>
+				<th>Team</th>
+				<% STAT_CONFIG['default']['batting'].each do |s| %>
+				<th><%= s.upcase %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @players.hitters.each do |hitter| %>
+			<%= render @view_template, player: hitter, type: 'batting' %>
+			<% end %>
+		</tbody>
+	</table>
+	<% end %>
+
+	<% unless @players.pitchers.empty? %>
+	<h5>Pitchers</h5>
+	<table class="table table-condensed data-table table-striped">
+		<thead>
+			<tr>
+				<th>Pos</th>
+				<th>Player</th>
+				<th>Team</th>
+				<% STAT_CONFIG['default']['pitching'].each do |s| %>
+				<th><%= s.upcase %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @players.pitchers.each do |pitcher| %>
+			<%= render @view_template, player: pitcher, type: 'pitching' %>
+			<% end %>
+		</tbody>
+	</table>
+	<% end %>
+<% end %>
