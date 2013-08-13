@@ -1,0 +1,37 @@
+<h1>Listing stats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Team</th>
+      <th>Stat definition</th>
+      <th>Season</th>
+      <th>Stint</th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stats.each do |stat| %>
+      <tr>
+        <td><%= stat.player %></td>
+        <td><%= stat.team %></td>
+        <td><%= stat.stat_definition %></td>
+        <td><%= stat.season %></td>
+        <td><%= stat.stint %></td>
+        <td><%= stat.value %></td>
+        <td><%= link_to 'Show', stat %></td>
+        <td><%= link_to 'Edit', edit_stat_path(stat) %></td>
+        <td><%= link_to 'Destroy', stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stat', new_stat_path %>

@@ -12,7 +12,8 @@
 		<% end %>
 	</td>
 	
+  <% player_stats = player.highest_level_stats %>
 	<% STAT_CONFIG['default'][type].each do |stat| %>
-	<td><%= stat.upcase %></td>
+	<td><%= stat %></td>
 	<% end %>
 </tr>

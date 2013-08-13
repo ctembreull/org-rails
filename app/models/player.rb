@@ -3,7 +3,7 @@ class Player < ActiveRecord::Base
   belongs_to :team
 	has_many :disabled_players	#these are DL entries historically
 	has_many :unavailable_players		#eg suspended, paternity, bereavement
-	has_many :stats, class_name: "PlayerStat"
+	has_many :stats
 	
 	validates :pid, :first_name, :last_name, :bats, :throws, presence: true
 	validates :pid, uniqueness: true
@@ -32,6 +32,10 @@ class Player < ActiveRecord::Base
 	scope :bats_left, -> { where("bats = 'L'") }
 	scope :bats_right, -> { where("bats = 'R'") }
 	scope :bats_switch, -> { where("bats = 'S'") }
+	
+	def self.find_by_full_name(s)
+		self.where("first_name || ' ' || last_name = ?", s)
+	end
 	
 	def first_last
 		[first_name, last_name].join(' ')
@@ -164,6 +168,10 @@ class Player < ActiveRecord::Base
 	
 	def unavailable?
 		suspended == true || on_bereavement == true || on_paternity == true || restricted == true || dfa == true
+	end
+	
+	def highest_level_stats(year=GAME_CONFIG['game']['league_year'])
+		stats.highest_level_stats(year)
 	end
 	
 	

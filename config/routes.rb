@@ -4,6 +4,8 @@ ActiveSupport::Inflector.inflections do |inflect|
 end
 
 Org::Application.routes.draw do
+  resources :stats
+
   resources :unavailable_players
 
   resources :disabled_players

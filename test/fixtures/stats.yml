@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player_id: 
+  team_id: 
+  stat_definition_id: 
+  season: 1
+  stint: 1
+  value: 1.5
+
+two:
+  player_id: 
+  team_id: 
+  stat_definition_id: 
+  season: 1
+  stint: 1
+  value: 1.5
